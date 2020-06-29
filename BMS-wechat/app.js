@@ -3,11 +3,11 @@ App({
   
   globalData: {
     userInfo: null,
-    appId: 'wx115d170c6715f78c',/* 小程序id */
-    appSecret: '18f51ce98c4556ed02c44c39af04e5f0', /* 小程序秘钥*/
+    appId: '*************',/* 小程序id */
+    appSecret: '*************', /* 小程序秘钥*/
     openid: null,
-    // ipaddr:'172.17.9.55'
-    ipaddr: '192.168.0.101'
+	/*当前ip*/
+    ipaddr: '*************'
   },
   onLaunch: function () {
     // 展示本地存储能力
