@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Community首页</title>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/editormd/css/editormd.preview.css" />
+<!--    <script src="../static/js/jquery.min.js"></script>-->
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <script type="text/javascript" src="../js/jQuery.js"></script>
+    <script type="text/javascript" src="../editormd/editormd.js"></script>
+    <script type="text/javascript" src="../editormd/lib/marked.min.js"></script>
+    <script type="text/javascript" src="../editormd/lib/prettify.min.js"></script>
+
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+<!--导航 question详情页面-->
+<div th:insert="~{navigation :: nav}"></div>
+<!--        main主题部分 main-left-->
+<div class="container-fluid main">
+        <!--左边-->
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 main-border " style="background-color: #fefffe">
+            <!--文章详情,标题-->
+            <div class="questionTitle">
+                <h2><span th:text="${questionDTO.title}"></span></h2>
+            </div>
+            <div class="media-body toEdit">
+                <span class="textDesc">作者:</span>
+                <span class="textDesc"  th:text="${questionDTO.user.name}"></span>
+                <span class="textDesc"> | 发布于</span>
+                <span class="textDesc" th:text="${#dates.format(questionDTO.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                <span class="textDesc"> | </span>
+                <span class="textDesc" th:text="${questionDTO.commentCount}"></span><span class="textDesc">个回复 •</span>
+                <span class="textDesc" th:text="${questionDTO.viewCount}"></span><span class="textDesc">次浏览 </span>
+
+
+                <li th:if="${session.user != null}" >
+                    <a  class="toPublish" th:href="|/publish/${questionDTO.id}|">
+                        <span class="glyphicon glyphicon-pencil label label-primary ">&nbsp;编辑</span>
+                    </a>
+                </li>
+
+
+
+            </div>
+            <hr/>
+            <!--下边为正文详细-->
+<!--            <div class="description">-->
+<!--                <span class="textDesc" th:text="${questionDTO.description}"></span>-->
+<!--            </div>-->
+            <div class="description" id="text-markdown-view">
+                <textarea style="display:none;" th:text="${questionDTO.description}"></textarea>
+            </div>
+
+            <script type="text/javascript">
+                $(function() {
+                    editormd.markdownToHTML("text-markdown-view", {});
+                });
+            </script>
+
+
+
+            <hr/>
+            <div class="tags">
+                <span class="label-info label tagInfo">
+                    <span class="glyphicon glyphicon-tags"></span>
+                    <span class="texts" th:text="${questionDTO.tag}"></span>
+                </span>
+            </div>
+            <hr/>
+           <div class= "mySelect">
+               <div class="myTip">
+                   <a href="/question/like" style="text-decoration:none">
+                   <span class="glyphicon glyphicon-thumbs-up"></span>
+                   <span>点赞</span>
+                   <span class="like" th:text="${questionDTO.likeCount}"></span>
+                   </a>
+               </div>
+               <div class="myTip myTips">
+                   <a href="/question/collection" style="text-decoration:none">
+                       <span class="glyphicon glyphicon-star-empty"></span>
+                       <span>收藏</span>
+                   </a>
+               </div>
+
+           </div>
+            <div>
+            <hr/>
+            <!--评论-->
+            <form id="comment" method="post" action="/Comment"   >
+                <div class="form-group" >
+                    <label  >评论</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">提交</button>
+            </form>
+            </div>
+        </div>
+        <!--右边-->
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 main-right main-border" style="background-color: #fefffe">
+            <div class="questionAvatar">
+                <img th:src="@{${questionDTO.user.getAvatarUrl()}}" alt="..." class="img-thumbnail">
+                <span> &nbsp; </span>
+                <span th:text="${questionDTO.user.getName()}"></span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--foot-->
+<div th:insert="~{foot :: foot}"></div>
+
+</div>
+</body>
+</html>

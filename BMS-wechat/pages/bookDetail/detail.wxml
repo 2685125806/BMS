@@ -1,0 +1,43 @@
+<!--pages/bookDetail/detail.wxml-->
+
+<view class="container">
+   
+	<!-- 单个 -->
+	<view class="book">
+		<view class="detail">
+			<!-- 封面 -->
+			<view>
+				<image src="{{bimageurl}}"></image>
+			</view>
+			<!-- 书籍信息 -->
+			<view class="bookInfo">
+				<text id="bookName">{{bname}}</text>
+				<text>\n</text>
+				<text>作者:{{bauthor}}</text>
+				<text>\n</text>
+				<text>出版社:{{bpublisher}}</text>
+				<text>\n</text>
+				<text>出版时间:{{bpublishTime}}</text>
+				<text>\n</text>
+        <text>ISBN:{{isbn}}</text>
+			</view>
+		</view>
+		
+		<view class="description">
+			<text>简介:{{bdescription}}</text>
+		</view>
+	
+		<view class="hr"></view>
+	</view>
+	<view class="operate">
+		<view class="order">
+			<image src="../../images/detail/order.png" bindtap="setStatus" data-status="1"></image>
+			<text>预约</text>
+		</view>
+		<view class="renew">
+			<image src="../../images/detail/renew.png" bindtap="setStatus" data-status="2"></image>
+			<text>续期</text>
+		</view>
+	</view>
+	 
+</view>

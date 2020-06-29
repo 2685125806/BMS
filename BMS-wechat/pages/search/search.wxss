@@ -1,0 +1,47 @@
+/* pages/search.wxss */
+page{background-color: white}
+.container{
+	width: 100%;
+	height: 7.5rem;
+	padding-top: 1.25rem;
+	/* background-color: yellow; */
+}
+.searchTip{
+	/* width: 100%; */
+	text-align: center;
+	height: 1.25rem;
+	font-size: medium;
+	font-family: 'Courier New', Courier, monospace;
+	
+}
+.search{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding-top: 3.525rem;
+	/* height: 10rem; */
+	/* background-color: red; */
+}
+.search input{
+	margin-left: 0.3125rem;
+	margin-right: 0.8125rem;
+	margin-top: 0.525rem;
+	border-radius: 0.25rem;
+	height: 2.25rem;
+	width: 167%;
+	/* background-color: gray; */
+	/* border-color: rgb(9,9,9); */
+	border: 0.0625rem solid black;
+	/* padding-top: 0.25rem; */
+	
+}
+ .search button{
+	/* width: 6.25rem; */
+	height: 2.5rem;
+	margin-top:0.525rem ;
+	
+	 
+	 /* display: flex;
+	 flex-direction: row; */
+	/* background-color: blue; */
+}

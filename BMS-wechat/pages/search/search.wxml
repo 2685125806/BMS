@@ -1,0 +1,19 @@
+<!--pages/search.wxml-->
+<!-- <text>pages/search.wxml</text> -->
+<view class="container">
+	<view class="searchTip">
+		
+		<text>搜索书籍</text>
+		<text>{{test}}</text>
+		
+		<text>{{test}}</text>
+		<text>(Tip:现仅支持通过书名搜索,其他方式搜索正在开发中~)</text>
+	</view>
+	<form bindsubmit="searchByName" id="searchForm">
+	<view class="search">
+		<input type="text"name="partName"/>
+		<button type="primary" form-type="submit">搜索</button>
+	</view>
+	</form>
+	
+</view>

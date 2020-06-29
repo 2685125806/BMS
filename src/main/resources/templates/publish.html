@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Publish 发布</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="/js/jQuery.js"></script>
+<!--    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+
+    <link rel="stylesheet" href="/editormd/css/editormd.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/community.css">
+    <script type="text/javascript" src="../editormd/editormd.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <div th:insert="~{navigation :: nav}"></div>
+        <div class="container-fluid main">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 main-border " style="background-color: #fefffe">
+                    <h2><span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>发起</h2>
+                    <hr/>
+                    <div class="alert alert-danger" role="alert"  th:text="${err}" th:if="${err!=null}">
+
+                    </div>
+
+                    <form action="/publish" method="post">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <div class="form-group">
+                            <label for="title">问题标题(简单扼要)</label>
+                            <input type="text" class="form-control" id="title" name="title" th:value="${title}" placeholder="问题标题.....">
+                        </div>
+
+                        <div class="form-group" id="text-editor">
+                            <label for="title">补充问题(必填,参考右侧标准)</label>
+                            <textarea  style="display:none;" class="form-control" rows="10" id="description" name="description" th:text="${description}" cols="30"  data-th-rows="10">
+                                ### Hello Editor.md !
+                            </textarea>
+                            <script type="text/javascript">
+                                $(function() {
+                                    let editor = editormd("text-editor", {
+                                        width: "100%",
+                                        height: 350,
+                                        path: "../editormd/lib/",
+                                        delay: 0,
+                                        watch: false,
+                                        placeholder: "请输入问题描述"
+                                    });
+                                });
+                            </script>
+<!--                            <textarea class="form-control" rows="3" id="description" name="description" th:text="${description}" cols="30"  data-th-rows="10"></textarea>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="title">添加标签:</label>
+                            <input type="text" class="form-control" id="tag" name="tag" th:value="${tag}" placeholder="输入标签,以,分隔.....">
+                        </div>
+                        <button type="submit" class="btn btn-success sub">发布</button>
+
+                    </form>
+
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 main-right main-border" style="background-color: #fefffe">
+                    <h3> 快捷键</h3>
+                    ---------------------------
+                    撤销：Ctrl/Command + Z
+                    重做：Ctrl/Command + Y
+                    加粗：Ctrl/Command + B
+                    斜体：Ctrl/Command + I
+                    标题：Ctrl/Command + Shift + H
+                    无序列表：Ctrl/Command + Shift + U
+                    有序列表：Ctrl/Command + Shift + O
+                    检查列表：Ctrl/Command + Shift + C
+                    插入代码：Ctrl/Command + Shift + K
+                    插入链接：Ctrl/Command + Shift + L
+                </div>
+
+        </div>
+<!--        foot-->
+        <div th:insert="~{foot :: foot}"></div>
+    </div>
+</body>
+</html>

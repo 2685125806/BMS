@@ -1,0 +1,19 @@
+<!--pages/user/userInfo.wxml-->
+<view class="container">
+	
+	<view class="top">
+			<!-- 用户头像logo,使用小程序前需要先登录获取用户信息  -->
+		  <view class="userinfo">
+			 
+			  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+			 
+		  </view>
+		  <view class="line"></view>
+		  <view class="info">
+			  <text>姓名:{{text}}</text>
+			  <text>{{text}}</text>
+		  </view>
+	</view>
+	
+</view>

@@ -1,0 +1,31 @@
+<!--pages/bookList/list.wxml-->
+
+<view class="container">
+	
+	<!-- 单个 -->
+	<view class="book" >
+		<view class="detail" wx:for="{{array}}" wx:key="key" >
+			<!-- 封面 -->
+			<view>
+				<image bindtap="detail" data-isbn="{{item.bisbn}}" src="{{item.bimageurl}}" ></image>
+			</view>
+			<!-- 书籍信息 -->
+			<view class="bookInfo">
+				<text id="bookName">{{item.bname}}</text>
+				<text>\n</text>
+				<text>作者:{{item.bauthor}}</text>
+				<text>\n</text>
+				<text>出版社:{{item.bpublisher}}</text>
+				<text>\n</text>
+				<text>出版时间:{{item.bpublishTime}}</text>
+        <text>\n</text>
+			</view> 
+		</view>
+		 <view class="hr"></view>
+	</view>
+	
+	
+
+  
+	
+</view>

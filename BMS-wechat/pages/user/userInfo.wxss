@@ -1,0 +1,31 @@
+/* pages/user/userInfo.wxss */ 
+.top{
+	background-image: url(http://pic1.sc.chinaz.com/files/pic/pic9/202004/zzpic24207.jpg);
+	width: 100%;
+	height: 11.125rem;
+	/* margin-top: 1.875rem; */
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.5rem;
+  
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color:black;
+}
+.line{
+width:100%;
+height: 2rpx;
+background-color: rgb(177, 172, 172);
+margin-top: 23px;
+}

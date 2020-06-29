@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="top">
+		<!-- 用户头像logo,使用小程序前需要先登录获取用户信息  -->
+	  <view class="userinfo">
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点我登录 </button>
+		<block wx:else>
+		  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+		  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	  </view>
+    </view>
+  
+  <!-- 功能模块,书籍状态 -->
+  <view class="bookS">
+	<view class="bookStatus" style="margin-left: 0.625rem;">
+		<image bindtap="ordering" src="../../images/status/order.png"></image>
+		<text >已预约</text>
+	</view>
+
+	<view class="bookStatus">
+		<image bindtap="reading" src="../../images/status/reading.png"></image>
+		<text >借阅中</text>
+	</view>
+	<view class="bookStatus">
+		<image bindtap="outOfDate" src="../../images/status/outOfDate.png"></image>
+		<text >已过期</text>
+	</view>
+  </view>
+  <view class="line"></view>
+  
+  <!-- 四个链接书目检索/线上预约/图书续借/个人信息 -->
+  <view class="otherFunc">
+	  <view class="fun" style="margin-left: 0.625rem;">
+			<image bindtap="search" src="../../images/otherFun/search.png"></image>
+			<text>书目检索</text>
+	  </view>
+	  <view  class="fun">
+	  		<image bindtap="orderOnline" src="../../images/otherFun/online.png"> </image>
+	  		<text>线上预约</text>
+	  </view>
+	  <view class="fun">
+	  		<image bindtap="bookRenew" src="../../images/otherFun/renew.png"></image>
+	  		<text>图书续借</text>
+	  </view>
+  </view>
+  <view class="line2"></view>
+  <view class="foot">
+	  <image src="../../images/otherFun/go.jpg"></image>
+	  <text>多试试,不试试你都不知道有多绝望!</text>
+  </view>
+
+</view>
